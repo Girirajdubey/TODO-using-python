@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Todo</title>
+</head>
+<body>
+    <h1>Update Todo</h1>
+    <form method="POST">
+        <input type="text" name="todo" value="{{ todo.text }}">
+        <input type="checkbox" name="complete" {% if todo.complete %}checked{% endif %}> Complete
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

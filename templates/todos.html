@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Todos</title>
+</head>
+<body>
+    <h1>My Todos</h1>
+    <form method="POST">
+        <input type="text" name="todo">
+        <button type="submit">Add Todo</button>
+    </form>
+    <ul>
+        {% for todo in todos %}
+            <li>
+                {{ todo.text }}
+                {% if not todo.complete %}
+                    <a href="{{ url_for('update_todo', id=todo.id) }}">Edit</a>
+                {% endif %}
+                <a href="{{ url_for('delete_todo', id=todo.id) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
